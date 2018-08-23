@@ -1,0 +1,22 @@
+﻿@model TestOne.Models.BuzzViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Index", "FizzBuzz", FormMethod.Post)) 
+{
+    <input type="text" name="Value", placeholder="Add value"/><br/>
+    <button type="submit">Add</button>
+}
+
+<div>
+    <table>
+        @foreach (var item in Model)
+        {
+
+        }
+    </table>
+</div>
