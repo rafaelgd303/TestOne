@@ -16,70 +16,56 @@ namespace TestOne.Services
             this.fizzBuzzRepository = fizzBuzzRepository;
         }
 
-        //public BuzzViewModel SetCount(BuzzViewModel number)
-        //{
-        //    var list = new List<FizzBuzz>();
-        //    for (int i = 1; i < number.Range; i++)
-        //    {
-        //        if(i % 3 == 0 && i % 5 == 0)
-        //        {
-
-        //        }
-        //        else if(i % 3 == 0)
-        //        {
-
-        //        }
-        //        else if(i % 5 == 0)
-        //        {
-
-        //        }
-        //        else
-        //        {
-
-        //        }
-        //        list.Add
-        //    }   
-        //}
-
         public IEnumerable<FizzBuzz> SetCount(int range)
         {
             DateTime dt = DateTime.Now;
+            var listWednesday = new List<FizzBuzz>();
             if (dt.DayOfWeek == DayOfWeek.Wednesday)
             {
-                var listWednesday = new List<FizzBuzz>();
+                for (int i = 1; i <= range; i++)
+                {
+                    if (i % 3 == 0 && i % 5 == 0)
+                    {
+                        listWednesday.Add(new FizzBuzz() { Text = "wizz wuzz", Color = "regular" });
+                    }
+                    else if (i % 3 == 0)
+                    {
+                        listWednesday.Add(new FizzBuzz() { Text = "wizz", Color = "blue" });
+                    }
+                    else if (i % 5 == 0)
+                    {
+                        listWednesday.Add(new FizzBuzz() { Text = "wuzz", Color = "green" });
+                    }
+                    else
+                    {
+                        listWednesday.Add(new FizzBuzz() { Text = i.ToString(), Color = "regular" });
+                    }
+                };
                 return listWednesday;
             }
 
             var list = new List<FizzBuzz>();
-            var fizzbuzz = new FizzBuzz();
             for (int i = 1; i <= range; i++)
             {
                 if (i % 3 == 0 && i % 5 == 0)
                 {
-                    fizzbuzz.Text = "fizz buzz";
-                    fizzbuzz.Color = "regular";
-                    //list.Add(fizzbuzz);
+                    list.Add(new FizzBuzz() { Text = "fizz buzz", Color = "regular" });
                 }
                 else if (i % 3 == 0)
                 {
-                    fizzbuzz.Text = "fizz";
-                    fizzbuzz.Color = "blue";
-                    //list.Add(fizzbuzz);
+                    list.Add(new FizzBuzz() { Text = "fizz", Color = "blue" });
                 }
                 else if (i % 5 == 0)
                 {
-                    fizzbuzz.Text = "buzz";
-                    fizzbuzz.Color = "green";
-                    //list.Add(fizzbuzz);
+                    list.Add(new FizzBuzz() { Text = "buzz", Color = "green" });
                 }
                 else
                 {
-                    fizzbuzz.Text = i.ToString();
-                    fizzbuzz.Color = "regular";
-                    //list.Add(fizzbuzz);
+                    list.Add(new FizzBuzz() { Text = i.ToString(), Color = "regular" });
                 }
-                list.Add(fizzbuzz);
             };
+
+            this.fizzBuzzRepository.AddFizzBuzz(list);
             return list;
         }
     }

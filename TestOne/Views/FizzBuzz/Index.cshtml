@@ -29,3 +29,17 @@
     </div>
 }
 <hr />
+
+<table>
+    @foreach (var item in Model.List)
+    {
+
+        <tr>
+            <td class="@item.Color">
+                @*@Html.DisplayFor(modelItem => item.Color)*@
+                @Html.DisplayFor(modelItem => item.Text)
+
+            </td>
+        </tr>
+    }
+</table>

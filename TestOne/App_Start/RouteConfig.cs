@@ -18,6 +18,12 @@ namespace TestOne
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "FizzBuzz", action = "Index", id = UrlParameter.Optional }
             );
+
+            //routes.MapRoute(
+            //    name: "fsefe",
+            //    url: "{controller/action/id}",
+            //    defaults: new { controller = }
+            //    );
         }
     }
 }

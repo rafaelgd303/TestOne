@@ -6,6 +6,6 @@ namespace TestOne.Interfaces
     public interface IFizzBuzzRepository
     {
         List<FizzBuzz> GetFizzBuzzs();
-        void AddFizzBuzz(FizzBuzz fizzBuzz);
+        void AddFizzBuzz(List<FizzBuzz> fizzBuzz);
     }
 }

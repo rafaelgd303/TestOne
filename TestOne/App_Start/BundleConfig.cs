@@ -24,6 +24,7 @@ namespace TestOne
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/StyleSheet1.css",
                       "~/Content/site.css"));
         }
     }
