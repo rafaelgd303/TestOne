@@ -19,29 +19,12 @@ namespace TestOne.Services
         public IEnumerable<FizzBuzz> SetCount(int range)
         {
             DateTime dt = DateTime.Now;
-            var listWednesday = new List<FizzBuzz>();
-            if (dt.DayOfWeek == DayOfWeek.Wednesday)
+            string fizz = "fizz";
+            string buzz = "buzz";
+            if(dt.DayOfWeek == DayOfWeek.Friday)
             {
-                for (int i = 1; i <= range; i++)
-                {
-                    if (i % 3 == 0 && i % 5 == 0)
-                    {
-                        listWednesday.Add(new FizzBuzz() { Text = "wizz wuzz", Color = "regular" });
-                    }
-                    else if (i % 3 == 0)
-                    {
-                        listWednesday.Add(new FizzBuzz() { Text = "wizz", Color = "blue" });
-                    }
-                    else if (i % 5 == 0)
-                    {
-                        listWednesday.Add(new FizzBuzz() { Text = "wuzz", Color = "green" });
-                    }
-                    else
-                    {
-                        listWednesday.Add(new FizzBuzz() { Text = i.ToString(), Color = "regular" });
-                    }
-                };
-                return listWednesday;
+                fizz = "wizz";
+                buzz = "buzz";
             }
 
             var list = new List<FizzBuzz>();
@@ -49,15 +32,15 @@ namespace TestOne.Services
             {
                 if (i % 3 == 0 && i % 5 == 0)
                 {
-                    list.Add(new FizzBuzz() { Text = "fizz buzz", Color = "regular" });
+                    list.Add(new FizzBuzz() { Text = fizz + " " + buzz, Color = "regular" });
                 }
                 else if (i % 3 == 0)
                 {
-                    list.Add(new FizzBuzz() { Text = "fizz", Color = "blue" });
+                    list.Add(new FizzBuzz() { Text = fizz, Color = "blue" });
                 }
                 else if (i % 5 == 0)
                 {
-                    list.Add(new FizzBuzz() { Text = "buzz", Color = "green" });
+                    list.Add(new FizzBuzz() { Text = buzz, Color = "green" });
                 }
                 else
                 {

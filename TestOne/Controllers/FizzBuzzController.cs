@@ -29,7 +29,7 @@ namespace TestOne.Controllers
             if (ModelState.IsValid)
             {
                 fizzBuzz.List = _repository.SetCount(fizzBuzz.Range).ToList();
-                fizzBuzz.List.Skip(150).Take(20).ToList();
+                //fizzBuzz.List.Skip(150).Take(20).ToList();
             }
             return View(fizzBuzz);
         }
