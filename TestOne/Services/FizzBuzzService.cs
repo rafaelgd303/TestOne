@@ -16,12 +16,17 @@ namespace TestOne.Services
             this.fizzBuzzRepository = fizzBuzzRepository;
         }
 
+        public IEnumerable<FizzBuzz> GetList()
+        {
+            return this.fizzBuzzRepository.GetFizzBuzzs();
+        }
+
         public IEnumerable<FizzBuzz> SetCount(int range)
         {
             DateTime dt = DateTime.Now;
             string fizz = "fizz";
             string buzz = "buzz";
-            if(dt.DayOfWeek == DayOfWeek.Friday)
+            if(dt.DayOfWeek == DayOfWeek.Wednesday)
             {
                 fizz = "wizz";
                 buzz = "buzz";
