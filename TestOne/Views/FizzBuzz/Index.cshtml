@@ -40,7 +40,21 @@
         </tr>
     }
 </table>
-@Html.ActionLink("prev", "Index", new { id = Model.Page - 1 })
-@Html.ActionLink("next", "Index", new { id = Model.Page + 1 })
+@if (Model.List.Any())
+{
+    if (!Model.Previous)
+    {
+        @Html.ActionLink("Previous", "Index", new { id = Model.Page - 1 }, new { @class = "btn btn-light" })
+    }
+
+    if (!Model.Next)
+    {
+        @Html.ActionLink("Next", "Index", new { id = Model.Page + 1 }, new { @class = "btn btn-light" })
+    }
+}
+
+
+
+
 
 

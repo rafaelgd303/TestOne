@@ -12,20 +12,26 @@ namespace TestOne.Controllers
 {
     public class FizzBuzzController : Controller
     {
-        private FizzBuzzService _repository;
+        private IFizzBuzzService _repository;
         public int pageSize = 20;
     
-        public FizzBuzzController(FizzBuzzService fizzBuzzsRepository)
+        public FizzBuzzController(IFizzBuzzService fizzBuzzsRepository)
         {
             _repository = fizzBuzzsRepository;
         }
         [HttpGet]
-        public ActionResult Index(int id = 1)
+        public ActionResult Index(int id = 0)
         {
             var list = _repository.GetList()?.ToList() ?? new List<FizzBuzz>();
             var model = new BuzzViewModel();
-            model.List = list.Skip((id - 1) * pageSize).Take(pageSize).ToList();
-            model.Page = id;
+            model.List = list.Skip((id) * pageSize).Take(pageSize).ToList();
+            model.Page = id < 0 ? 0 : id;
+            model.MaxPage = (int)(list.Count() / pageSize);
+            //(int)Math.Ceiling((decimal)TotalItems / ItemsPerPage);
+
+            model.Previous = id <= 0 ? true : false;
+            model.Next = model.Page >= model.MaxPage;
+
             return View(model);
         }
         [HttpPost]
@@ -36,7 +42,7 @@ namespace TestOne.Controllers
                 fizzBuzz.List = _repository.SetCount(fizzBuzz.Range).ToList();
                 fizzBuzz.Page = 1;
             }
-            return View(fizzBuzz);
+            return RedirectToAction("Index", new { @id = 0 });
         }
     }
 }

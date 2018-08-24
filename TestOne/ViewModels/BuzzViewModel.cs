@@ -11,6 +11,7 @@ namespace TestOne.Models
         public List<FizzBuzz> List { get; set; } = new List<FizzBuzz>();
 
         public int Page { get; set; }
+        public int MaxPage { get; set; }
         public bool Previous { get; set; }
         public bool Next { get; set; }
     }

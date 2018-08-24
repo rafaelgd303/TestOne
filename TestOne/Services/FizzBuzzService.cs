@@ -7,7 +7,7 @@ using TestOne.Models;
 
 namespace TestOne.Services
 {
-    public class FizzBuzzService
+    public class FizzBuzzService: IFizzBuzzService
     {
         private readonly IFizzBuzzRepository fizzBuzzRepository;
 
@@ -56,5 +56,11 @@ namespace TestOne.Services
             this.fizzBuzzRepository.AddFizzBuzz(list);
             return list;
         }
+    }
+
+    public interface IFizzBuzzService
+    {
+        IEnumerable<FizzBuzz> GetList();
+        IEnumerable<FizzBuzz> SetCount(int range);
     }
 }
