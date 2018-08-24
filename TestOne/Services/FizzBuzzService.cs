@@ -43,35 +43,41 @@ namespace TestOne.Services
 
         public IEnumerable<FizzBuzz> SetCount(int range)
         {
+            DateTime dt = DateTime.Now;
+            if (dt.DayOfWeek == DayOfWeek.Wednesday)
+            {
+                var listWednesday = new List<FizzBuzz>();
+                return listWednesday;
+            }
+
             var list = new List<FizzBuzz>();
             var fizzbuzz = new FizzBuzz();
-            for (int i = 0; i < range; i++)
+            for (int i = 1; i <= range; i++)
             {
                 if (i % 3 == 0 && i % 5 == 0)
                 {
                     fizzbuzz.Text = "fizz buzz";
                     fizzbuzz.Color = "regular";
-                    fizzBuzzRepository.AddFizzBuzz(fizzbuzz);
+                    //list.Add(fizzbuzz);
                 }
                 else if (i % 3 == 0)
                 {
                     fizzbuzz.Text = "fizz";
                     fizzbuzz.Color = "blue";
-                    fizzBuzzRepository.AddFizzBuzz(fizzbuzz);
+                    //list.Add(fizzbuzz);
                 }
                 else if (i % 5 == 0)
                 {
                     fizzbuzz.Text = "buzz";
                     fizzbuzz.Color = "green";
-                    fizzBuzzRepository.AddFizzBuzz(fizzbuzz);
+                    //list.Add(fizzbuzz);
                 }
                 else
                 {
-                    fizzbuzz.Text = range.ToString();
+                    fizzbuzz.Text = i.ToString();
                     fizzbuzz.Color = "regular";
-                    fizzBuzzRepository.AddFizzBuzz(fizzbuzz);
+                    //list.Add(fizzbuzz);
                 }
-
                 list.Add(fizzbuzz);
             };
             return list;

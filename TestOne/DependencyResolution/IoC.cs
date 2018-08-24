@@ -11,7 +11,6 @@ namespace TestOne
     {
         public static IContainer Initialize()
         {
-
             return new Container(x =>
                         {
                             x.Scan(scan =>

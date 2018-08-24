@@ -6,17 +6,26 @@
 
 <h2>Index</h2>
 
-@using (Html.BeginForm("Index", "FizzBuzz", FormMethod.Post)) 
+@using (Html.BeginForm())
 {
-    <input type="text" name="Value", placeholder="Add value"/><br/>
-    <button type="submit">Add</button>
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Range, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Range, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Range, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
 }
-
-<div>
-    <table>
-        @foreach (var item in Model)
-        {
-
-        }
-    </table>
-</div>
+<hr />

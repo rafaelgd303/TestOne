@@ -12,8 +12,8 @@ namespace TestOne.Repository
     {
         public static List<FizzBuzz> _fizzBuzzs = new List<FizzBuzz>
         {
-            new FizzBuzz { Text = "1" },
-            new FizzBuzz { Text = "2" },
+            new FizzBuzz { Text = "1", Color = "regular" },
+            new FizzBuzz { Text = "2", Color = "regular" },
             new FizzBuzz { Text = "3" },
             new FizzBuzz { Text = "4" },
             new FizzBuzz { Text = "5" },
