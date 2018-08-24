@@ -7,7 +7,7 @@ using TestOne.Models;
 
 namespace TestOne.Services
 {
-    public class FizzBuzzService: IFizzBuzzService
+    public class FizzBuzzService : IFizzBuzzService
     {
         private readonly IFizzBuzzRepository fizzBuzzRepository;
 
@@ -26,10 +26,10 @@ namespace TestOne.Services
             DateTime dt = DateTime.Now;
             string fizz = "fizz";
             string buzz = "buzz";
-            if(dt.DayOfWeek == DayOfWeek.Wednesday)
+            if (dt.DayOfWeek == DayOfWeek.Wednesday)
             {
                 fizz = "wizz";
-                buzz = "buzz";
+                buzz = "wuzz";
             }
 
             var list = new List<FizzBuzz>();
@@ -56,11 +56,5 @@ namespace TestOne.Services
             this.fizzBuzzRepository.AddFizzBuzz(list);
             return list;
         }
-    }
-
-    public interface IFizzBuzzService
-    {
-        IEnumerable<FizzBuzz> GetList();
-        IEnumerable<FizzBuzz> SetCount(int range);
     }
 }

@@ -13,7 +13,7 @@ namespace TestOne.Tests.Service
     public class FizzBuzzTest
     {
         [TestMethod]
-        public void SetCount_When()
+        public void SetCount_Number_Of_Values()
         {
             //Arrange
             var mock = new Mock<IFizzBuzzRepository>();
@@ -28,15 +28,13 @@ namespace TestOne.Tests.Service
 
         }
         [TestMethod]
-        public void SetCount_WhenRangeInModulo3And5_ReturnProperResult()
+        public void SetCount_WhenRangeInModulo3And5()
         {
             //Arrange
 
             var mock = new Mock<IFizzBuzzRepository>();
             mock.Setup(x => x.AddFizzBuzz(It.IsAny<List<FizzBuzz>>()));
             var service = new FizzBuzzService(mock.Object);
-            
-
 
             //Act
             var result = service.SetCount(100).ToList();
@@ -46,6 +44,76 @@ namespace TestOne.Tests.Service
             Assert.AreEqual("fizz buzz", result[29].Text);
             Assert.AreEqual(94, result.Count(x => x.Text != "fizz buzz"));
 
+        }
+
+        [TestMethod]
+        public void SetCount_WhenRangeInModulo3()
+        {
+            //Arrange
+
+            var mock = new Mock<IFizzBuzzRepository>();
+            mock.Setup(x => x.AddFizzBuzz(It.IsAny<List<FizzBuzz>>()));
+            var service = new FizzBuzzService(mock.Object);
+
+            //Act
+            var result = service.SetCount(100).ToList();
+
+            //Assert
+            Assert.AreEqual("fizz", result[2].Text);
+            Assert.AreEqual("fizz", result[5].Text);
+            Assert.AreEqual("fizz", result[17].Text);
+            //Assert.AreEqual(94, result.Count(x => x.Text != "fizz buzz"));
+
+        }
+        [TestMethod]
+        public void SetCount_WhenRangeInModulo3_Wednesday()
+        {
+            //Arrange
+            var mock = new Mock<IFizzBuzzRepository>();
+            mock.Setup(x => x.AddFizzBuzz(It.IsAny<List<FizzBuzz>>()));
+            var service = new FizzBuzzService(mock.Object);
+
+            //Act
+            var result = service.SetCount(100).ToList();
+
+            //Assert
+            Assert.AreEqual("fizz", result[8].Text);
+            Assert.AreEqual("fizz", result[26].Text);
+            Assert.AreEqual(94, result.Count(x => x.Text != "fizz buzz"));
+        }
+        [TestMethod]
+        public void SetCount_WhenRangeInModulo5()
+        {
+            //Arrange
+
+            var mock = new Mock<IFizzBuzzRepository>();
+            mock.Setup(x => x.AddFizzBuzz(It.IsAny<List<FizzBuzz>>()));
+            var service = new FizzBuzzService(mock.Object);
+
+            //Act
+            var result = service.SetCount(100).ToList();
+
+            //Assert
+            Assert.AreEqual("buzz", result[4].Text);
+            Assert.AreEqual("buzz", result[9].Text);
+            Assert.AreEqual("buzz", result[24].Text);
+
+        }
+        [TestMethod]
+        public void SetCount_WhenRangeInModulo5_Wednesday()
+        {
+            //Arrange
+            var mock = new Mock<IFizzBuzzRepository>();
+            mock.Setup(x => x.AddFizzBuzz(It.IsAny<List<FizzBuzz>>()));
+            var service = new FizzBuzzService(mock.Object);
+
+            //Act
+            var result = service.SetCount(100).ToList();
+
+            //Assert
+            Assert.AreEqual("buzz", result[4].Text);
+            Assert.AreEqual("buzz", result[9].Text);
+            Assert.AreEqual("buzz", result[24].Text);
         }
     }
 }
