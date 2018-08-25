@@ -11,11 +11,11 @@ namespace TestOne.Controllers
     public class FizzBuzzAPIController : ApiController
     {
 
-        public FizzBuzzService dupa { get; set; }
+        public FizzBuzzService fizzBuzzApi { get; set; }
 
         public FizzBuzzAPIController(FizzBuzzService fizzBuzzsRepository)
         {
-            dupa = fizzBuzzsRepository;
+            fizzBuzzApi = fizzBuzzsRepository;
         }
 
         public FizzBuzzService FizzBuzzsRepository { get; }
@@ -23,13 +23,13 @@ namespace TestOne.Controllers
         // GET: api/FizzBuzzAPI
         public IEnumerable<string> Get()
         {
-            return dupa.GetList().Select(fizzbuz => fizzbuz.Text)?.ToList();
+            return fizzBuzzApi.GetList().Select(fizzbuz => fizzbuz.Text)?.ToList();
         }
 
         // POST: api/FizzBuzzAPI
         public void Post([FromBody]int range)
         {
-            dupa.SetCount(range).ToList();
+            fizzBuzzApi.SetCount(range).ToList();
         }
 
     }
